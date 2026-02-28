@@ -6,10 +6,17 @@ import SurveyNameSection from "./sections/SurveyNameSection";
 import LaunchSection from "./sections/LaunchSection";
 import RecipientsSection from "./sections/RecipientSection";
 import EmailGroupSection from "./sections/EmailGroupSection";
-import TemplateSection from "./sections/TemplateSection";
 import EmailContentSection from "./sections/EmailContentSection";
+import Box from "@mui/material/Box";
 
-export default function SurveyDetails() {
+export default function SurveyDetails({
+  emailContent,
+  setEmailContent,
+  selectedTemplate,
+  setSelectedTemplate,
+  surveyRecipients,
+  setSurveyRecipients,
+}) {
   return (
     <Paper elevation={3} sx={{ width: "100%", borderRadius: 2 }}>
       <Typography
@@ -28,14 +35,20 @@ export default function SurveyDetails() {
           <SurveyNameSection />
           <LaunchSection />
         </Stack>
-        <Stack sx={{ p: 2, backgroundColor: "#c2e7ff" }}>
-          <RecipientsSection />
-          <EmailGroupSection />
-        </Stack>
-        <Stack spacing={1} sx={{ p: 2 }}>
-          <EmailContentSection />
-          <TemplateSection />
-        </Stack>
+        <Box sx={{ p: 2, backgroundColor: "#c2e7ff" }}>
+          <RecipientsSection
+            surveyRecipients={surveyRecipients}
+            setSurveyRecipients={setSurveyRecipients}
+          />
+        </Box>
+        <Box sx={{ p: 2 }}>
+          <EmailContentSection
+            emailContent={emailContent}
+            setEmailContent={setEmailContent}
+            selectedTemplate={selectedTemplate}
+            setSelectedTemplate={setSelectedTemplate}
+          />
+        </Box>
       </Stack>
     </Paper>
   );

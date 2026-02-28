@@ -29,6 +29,8 @@ export default function QuestionsPanel({
   setQuestions,
   persist,
   setPersist,
+  emailContent,
+  selectedTemplate,
 }) {
   const generateId = () =>
     crypto.randomUUID?.() ??
@@ -39,6 +41,12 @@ export default function QuestionsPanel({
   const sensors = useSensors(useSensor(PointerSensor));
   const { watch } = useFormContext();
   const surveyName = watch("surveyName");
+  const emailGroup = watch("emailGroup");
+
+  const templateName = watch("templateName");
+  const senderName = watch("senderName");
+  const subject = watch("subject");
+  const body = watch("body");
 
   const validQuestions = questions.filter(
     (q) =>
@@ -46,7 +54,15 @@ export default function QuestionsPanel({
       (q.answerType !== "radio" || q.options?.some((o) => o.trim())),
   );
 
-  const disableSaveCreate = !surveyName?.trim() || validQuestions.length === 0;
+  const isEmailInvalid =
+    (emailContent === "new" &&
+      !(templateName && senderName && subject && body)) ||
+    (emailContent === "existing" && !selectedTemplate);
+
+  const isSurveyInvalid =
+    !emailGroup?.trim() || !surveyName?.trim() || validQuestions.length === 0;
+
+  const disableSaveCreate = isEmailInvalid || isSurveyInvalid;
 
   const handleSave = (q) => {
     setQuestions((prev) => {

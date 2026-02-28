@@ -3,12 +3,16 @@ export const surveyDefaultValues = {
   time_zone: "",
   date: null,
   launchTime: null,
-  survey_recipients: "existing",
-  email_content: "existing",
-  email_group: "",
-  templateName: "",
-  senderName: "",
-  subject: "",
+  emailGroup: "",
+
+  emailContent: {
+    templateId: null,
+    templateName: "",
+    senderName: "",
+    subject: "",
+    body: "",
+  },
+
   questions: [],
 };
 

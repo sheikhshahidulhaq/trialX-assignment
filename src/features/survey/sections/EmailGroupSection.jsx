@@ -18,7 +18,7 @@ export default function EmailGroupSection() {
       </Box>
 
       <SelectField
-        name="email_group"
+        name="emailGroup"
         label="Select Email Group"
         options={emailGroupOptions}
         rules={{ required: "Required" }}

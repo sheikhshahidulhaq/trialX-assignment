@@ -44,3 +44,12 @@
 .read-the-docs {
   color: #888;
 }
+.ProseMirror {
+  outline: none;
+  min-height: 200px;
+  font-family: inherit;
+}
+
+.ProseMirror p {
+  margin: 0;
+}
