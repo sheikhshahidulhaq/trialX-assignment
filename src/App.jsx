@@ -51,18 +51,17 @@ export default function App() {
         };
 
         alert(JSON.stringify(payload, null, 2));
-        console.log(payload);
       }}
     >
       <Grid container spacing={2} sx={{ minHeight: "100vh" }}>
         <Grid size={{ xs: 12, md: 8 }}>
           <SurveyDetails
+            surveyRecipients={surveyRecipients}
+            setSurveyRecipients={setSurveyRecipients}
             emailContent={emailContent}
             setEmailContent={setEmailContent}
             selectedTemplate={selectedTemplate}
             setSelectedTemplate={setSelectedTemplate}
-            surveyRecipients={surveyRecipients}
-            setSurveyRecipients={setSurveyRecipients}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 4 }}>
@@ -73,6 +72,7 @@ export default function App() {
             setPersist={setPersist}
             emailContent={emailContent}
             selectedTemplate={selectedTemplate}
+            surveyRecipients={surveyRecipients}
           />
         </Grid>
       </Grid>

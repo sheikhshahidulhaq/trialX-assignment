@@ -1,6 +1,5 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import RadioGroupField from "../../../components/form/RadioGroupField";
 import SimpleRadioGroup from "../../../components/SimpleRadioGroup";
 import EmailGroupSection from "./EmailGroupSection";
 
@@ -18,16 +17,6 @@ export default function RecipientsSection({
         Set the Recipients of the Custom Survey. You can either use and Existing
         Email Group or create a new one.
       </Typography>
-
-      {/* <RadioGroupField
-        name="survey_recipients"
-        row
-        align="center"
-        options={[
-          { label: "Use Existing Email Group", value: "existing" },
-          { label: "Create New Email Group", value: "new" },
-        ]}
-      /> */}
 
       <SimpleRadioGroup
         name="survey_recipients"

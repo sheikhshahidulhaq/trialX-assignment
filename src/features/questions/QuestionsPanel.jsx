@@ -31,6 +31,7 @@ export default function QuestionsPanel({
   setPersist,
   emailContent,
   selectedTemplate,
+  surveyRecipients,
 }) {
   const generateId = () =>
     crypto.randomUUID?.() ??
@@ -60,7 +61,9 @@ export default function QuestionsPanel({
     (emailContent === "existing" && !selectedTemplate);
 
   const isSurveyInvalid =
-    !emailGroup?.trim() || !surveyName?.trim() || validQuestions.length === 0;
+    (surveyRecipients === "existing" && !emailGroup?.trim()) ||
+    !surveyName?.trim() ||
+    validQuestions.length === 0;
 
   const disableSaveCreate = isEmailInvalid || isSurveyInvalid;
 
