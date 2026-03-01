@@ -42,7 +42,11 @@ export default function LaunchSection() {
           />
         </Grid>
 
-        <Grid size={{ xs: 12, md: 1.5 }} paddingLeft={{ xs: 1.5, md: 0 }}>
+        <Grid
+          size={{ xs: 12, md: 1.5 }}
+          paddingLeft={{ xs: 1.5, md: 0 }}
+          display={"flex"}
+        >
           <FormControlLabel
             sx={{
               gap: 1,
